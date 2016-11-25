@@ -1,0 +1,107 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="PrestationCtrl">
+            <form name="userForm">
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Mission</label>
+                    <input ng-value="datas.mission">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Date Effet</label>
+                    <input ng-value="datas.prestation.date_effet" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Nombre Jours</label>
+                    <input  ng-value="datas.prestation.nombre_jours" disabled>
+                </md-input-container>
+
+
+                <label>Consultant</label>
+
+                <md-input-container md-no-float class="md-block">
+                    <a class="md-primary" href="https://shrm.herokuapp.com/uploads/{{datas.prestation.compte_rendu}}">Compte Rendu</a>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <a class="md-primary" href="https://shrm.herokuapp.com/uploads/{{datas.prestation.facture_consultant}}">Facture Consultant</a>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Mode Paiement</label>
+                    <input ng-value="datas.prestation.mode_paiement_consultant" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Date Paiement</label>
+                    <input ng-value="datas.prestation.date_paiement_consultant" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Réf Paiement</label>
+                    <input ng-value="datas.prestation.ref_paiement_consultant" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Prestation Payée ?</label><input type="checkbox" ng-checked="datas.prestation.prestation_payee" disabled>
+                </md-input-container>
+
+                <label>Client</label>
+
+                <md-input-container md-no-float class="md-block">
+                    <input ng-value="datas.prestation.ref_facture_client" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Mode Paiement</label>
+                    <input ng-value="datas.prestation.mode_paiement_client" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Date Paiement</label>
+                    <input ng-value="datas.prestation.date_paiement_client" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Réf Paiement</label>
+                    <input ng-value="datas.prestation.ref_paiement_client" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Facture Réglée ?</label><input type="checkbox" ng-checked="datas.prestation.facture_reglee" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Montant à payer</label>
+                    <input ng-value="datas.prestation.montant_a_payer" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Montant Facture</label>
+                    <input ng-value="datas.prestation.montant_facture" disabled>
+                </md-input-container>
+
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+</div>
+
+

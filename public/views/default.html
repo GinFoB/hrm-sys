@@ -1,0 +1,212 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button"
+            aria-label="Menu Button"
+            hide-gt-md
+            ng-click="onClickMenu();">
+            <md-icon
+                md-svg-icon=""
+                aria-label="Menu Icon">
+            </md-icon>
+        </md-button>
+
+        <h2>{{model.title}}</h2>
+
+        <span flex></span>
+    </div>
+
+</md-toolbar>
+
+<!--
+ <table md-table md-progress="promise" ng-repeat="srole in isRole">
+                        <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                        <tr md-row>
+                            <th md-column ><span></span>
+                            <table>
+                                <tr >
+                                    <td>{{srole}}</td>
+                                </tr>
+                            </table>
+                        </th>
+                            <th md-column ><span>Client</span>
+                                <table>
+                                    <tr style="display: inline;">
+                                    <th class="md-icon-button">
+                                        <md-icon>add</md-icon>
+                                    </th>
+                                    <th class="md-icon-button">
+                                        <md-icon>remove_red_eye</md-icon>
+                                    </th>
+                                    <th class="md-icon-button">
+                                        <md-icon>edit</md-icon>
+                                    </th>
+                                    <th class="md-icon-button">
+                                        <md-icon>remove</md-icon>
+                                    </th>
+                                    </tr>
+                                    <tbody  style="display:inline;">
+                                    <tr ng-repeat="permClient in permsAll">
+                                        <td>
+                                            {{permClient === "create-client" ? 'X' : ''}}
+                                        </td>
+                                        <td>
+                                            {{permClient === "edit-client" ? 'X' : ''}}
+                                        </td>
+                                        <td>
+                                            {{permClient === "read-client" ? 'X' : ''}}
+                                        </td>
+                                        <td>
+                                            {{permClient === "delete-client" ? 'X' : ''}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                                <th md-column><span>Consultants</span>
+                                    <table>
+                                        <tr style="display: inline;">
+                                            <td class="md-icon-button">
+                                                <md-icon>add</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove_red_eye</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>edit</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove</md-icon>
+                                            </td>
+                                        </tr>
+                                        <tbody md-body style="display:inline; margin-left: -70px; ">
+                                        <tr ng-repeat="permClient in permsAll" >
+                                            <td>
+                                                {{permClient === "add-cons" ? 'X' : ''}}
+                                            </td>
+                                            <td>
+                                                {{permClient === "edit-cons" ? 'X' : ''}}
+                                            </td>
+                                            <td>
+                                                {{permClient === "read-cons" ? 'X' : ''}}
+                                            </td>
+                                            <td>
+                                                {{permClient === "delete-cons" ? 'X' : ''}}
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+
+                            <th md-column><span>Missions</span>
+                                <table>
+                                    <tr>
+                                        <td class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tbody md-body>
+                                    <tr>
+                                    <tr>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                            <th md-column><span>Prestations</span>
+                                <table>
+                                    <tr>
+                                        <td class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tbody md-body>
+                                    <tr>
+                                    <tr>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                            <th md-column><span>Caisse</span>
+                                <table>
+                                    <tr>
+                                        <td class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tbody md-body>
+                                    <tr>
+                                    <tr>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                        <td>
+                                            X
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                        </tr>
+                        </thead>
+
+                    </table>-->
+

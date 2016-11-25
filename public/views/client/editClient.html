@@ -1,0 +1,58 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="ClientCtrl">
+            <form name="userForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Raison Social</label>
+                        <input ng-model="client.raison" ng-value="datas.raisonSoc" required>
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Address</label>
+                    <input ng-model="client.addresse" ng-value="datas.add">
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="client.ville" ng-value="datas.ville" placeholder="Ville">
+                        <md-optgroup>
+                            <md-option ng-value="ville"  ng-repeat="ville in villes">{{ville}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Email</label>
+                    <input type="email" ng-model="client.email" ng-value="datas.email">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Telephone</label>
+                    <input type="tel" ng-model="client.tel" ng-value="datas.tel">
+                </md-input-container>
+                <md-input-container mclass="md-block" flex-gt-sm">
+                    <label>Nom Responsable</label>
+                    <input ng-model="client.name_resp" ng-value="datas.nomResp">
+                </md-input-container>
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                    <md-button ng-click="edit(client)">
+                        Valider
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+
+
+</div>

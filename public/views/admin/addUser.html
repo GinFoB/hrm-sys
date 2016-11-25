@@ -1,0 +1,45 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+            <form name="userForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Email</label>
+                        <input ng-model="email">
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Mot de passe</label>
+                    <input type="password" ng-model="password">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Confirmer Mot de passe</label>
+                    <input type="password" ng-model="cpassword">
+                </md-input-container>
+                            <md-select ng-model="selectedItem" placeholder="Profile" md-selected-text="getSelectedText()">
+                                <md-optgroup>
+                                    <md-option ng-repeat="profile in profiles">{{profile}}</md-option>
+                                </md-optgroup>
+                            </md-select>
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                    <md-button ng-click="addUser()">
+                        Valider
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+    </md-content>
+
+</div>

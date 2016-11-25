@@ -1,0 +1,88 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="ConsultantCtrl">
+            <form name="userForm" novalidate>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Nom</label>
+                        <input type="text" ng-model="consultant.nom" name="zip" required>
+                        <div ng-messages="userForm.zip.$error" ng-if="userForm.$submitted || userForm.zip.$touched">
+                            <div ng-message="required">Nom de consultant est obligatoire !!!</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Prénom</label>
+                    <input ng-model="consultant.prenom">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-datepicker ng-model="consultant.date_naissance" md-placeholder="Date de naissance"></md-datepicker>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Adresse</label>
+                    <input ng-model="consultant.adresse">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="consultant.ville" placeholder="Ville">
+                        <md-optgroup>
+                            <md-option ng-value="ville" ng-repeat="ville in villes">{{ville}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <input type="email" name="email" ng-model="consultant.email" placeholder="Email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                    <div ng-messages="userForm.email.$error">
+                        <div ng-message="pattern">Please enter a valid email address!</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <input type="tel" name="tel" ng-model="consultant.telephone" placeholder="Telephone" ng-pattern="/^[(]{0,1}[0-9]{3}[)\.\- ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/">
+                    <div ng-messages="userForm.tel.$error">
+                        <div ng-message="pattern">Please enter a valid tel!</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="consultant.type" placeholder="Type">
+                        <md-optgroup>
+                            <md-option ng-value="type" ng-repeat="type in types">{{type}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="consultant.rib" placeholder="RIB">
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="consultant.banque" placeholder="Banque">
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="consultant.observations" placeholder="Observations">
+                </md-input-container>
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                    <md-button type="submit" ng-click="add(consultant)">
+                        Valider
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+
+
+</div>
+

@@ -1,0 +1,111 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="PrestationCtrl">
+
+            <form name="userForm" name="form">
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="file.mis_id" placeholder="Mission">
+                        <md-optgroup>
+                            <md-option ng-value="mission" ng-repeat="mission in missions">{{mission}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-datepicker ng-model="file.date_effet" md-placeholder="Date Effet"></md-datepicker>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="number" ng-model="file.nombre_jours" placeholder="Nombre Jours">
+                </md-input-container>
+
+                <label>Consultant</label>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="file" ngf-select ng-model="file.compte_rendu" name="file">
+                </md-input-container>
+
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="file" ngf-select ng-model="file.facture_consultant" name="file">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="file.mode_paiement_consultant" placeholder="Mode Paiement">
+                        <md-optgroup>
+                            <md-option ng-value="mode" ng-repeat="mode in modes">{{mode}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-datepicker ng-model="file.date_paiement_consultant" md-placeholder="Date Paiement"></md-datepicker>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="file.ref_paiement_consultant" placeholder="Réf Paiement">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Prestation Payée ?</label><input type="checkbox" ng-model="file.prestation_payee">
+                </md-input-container>
+
+                <label>Client</label>
+
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="file.ref_facture_client" placeholder="Réf Facture">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="file.mode_paiement_client" placeholder="Mode Paiement">
+                        <md-optgroup>
+                            <md-option ng-value="mode" ng-repeat="mode in modes">{{mode}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-datepicker ng-model="file.date_paiement_client" md-placeholder="Date Paiement"></md-datepicker>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="file.ref_paiement_client" placeholder="Réf Paiement">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Facture Réglée ?</label><input type="checkbox" ng-model="file.facture_reglee">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="number" ng-model="file.montant_a_payer" placeholder="Montant à payer">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="number" ng-model="file.montant_facture" placeholder="Montant Facture">
+                </md-input-container>
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                    <md-button ng-click="add(file)">
+                        Valider
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+</div>
+
+

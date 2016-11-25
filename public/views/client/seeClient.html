@@ -1,0 +1,56 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form">
+    <md-content layout-padding>
+        <div ng-controller="ClientCtrl">
+            <form name="userForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Raison Social</label>
+                        <input ng-value="datas.raisonSoc" disabled>
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Address</label>
+                    <input ng-value="datas.add" disabled>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Ville</label>
+                    <input ng-value="datas.ville" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Email</label>
+                    <input ng-value="datas.email" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Téléphone</label>
+                    <input ng-value="datas.tel" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Nom Responsable</label>
+                    <input ng-value="datas.nomResp" disabled>
+                </md-input-container>
+
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+
+
+</div>

@@ -1,0 +1,75 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="CaisseCtrl">
+            <form name="userForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Designation</label>
+                        <input ng-model="caisse.designat" ng-value="datas.designat">
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Date Paiement</label>
+                    <input ng-model="caisse.date_paiement" ng-value="datas.date_paiement">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="caisse.mode_paiement" ng-value="datas.mode_paiement">
+                        <md-optgroup>
+                            <md-option ng-value="mode" ng-repeat="mode in modes">{{mode}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Montant</label>
+                    <input ng-model="caisse.montant" ng-value="datas.montant">
+                </md-input-container>
+
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Réf Paiement</label>
+                    <input ng-model="caisse.ref_paiement" ng-value="datas.ref_paiement">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Type Débit</label>
+                   <!-- <md-select ng-model="caisse.type_opr" ng-value="datas.type_opr">
+                        <md-optgroup>
+                            <md-option ng-value="type" ng-repeat="type in types">{{type}}</md-option>
+                        </md-optgroup>
+                    </md-select>-->
+                    <input ng-model="caisse.type_opr" ng-value="datas.type_opr">
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <label>Observations</label>
+                    <input ng-model="caisse.observations" ng-value="datas.observations">
+                </md-input-container>
+
+                <md-dialog-actions layout="row">
+                <span flex></span>
+                <md-button ng-click="cancel()">
+                    Annuler
+                </md-button>
+                <md-button ng-click="edit(caisse)">
+                    Valider
+                </md-button>
+            </md-dialog-actions>
+
+            </form>
+        </div>
+    </md-content>
+
+
+</div>
+

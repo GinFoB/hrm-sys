@@ -1,0 +1,111 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="MissionCtrl">
+            <form name="userForm" novalidate>
+
+                <md-input-container md-no-float class="md-block">
+                        <md-select name="zip" ng-model="mission.client" placeholder="Client" required>
+                            <md-optgroup>
+                                <md-option ng-value="client" ng-repeat="client in clients">{{client}}</md-option>
+                            </md-optgroup>
+                        </md-select>
+                    <div ng-messages="userForm.zip.$error" ng-if="userForm.$submitted || userForm.zip.$touched">
+                        <div ng-message="required">Client est obligatoire !!!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block" required>
+                        <md-select name="cons" ng-model="mission.consultant" placeholder="Consultant" required="">
+                            <md-optgroup>
+                                <md-option ng-value="consultant" ng-repeat="consultant in consultants">{{consultant}}</md-option>
+                            </md-optgroup>
+                        </md-select>
+                    <div ng-messages="userForm.cons.$error" ng-if="userForm.$submitted || userForm.cons.$touched">
+                        <div ng-message="required">Consultant est obligatoire !!!</div>
+                    </div>
+                </md-input-container>
+
+                    <md-input-container md-no-float class="md-block" required>
+                        <input type="titre" ng-model="mission.titre" placeholder="Titre" required>
+                        <div ng-messages="userForm.titre.$error" ng-if="userForm.$submitted || userForm.titre.$touched">
+                            <div ng-message="required">Titre est obligatoire !!!</div>
+                        </div>
+                    </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-datepicker ng-model="mission.date_debut" md-placeholder="Date Début" name="min"></md-datepicker>
+                    <span>{{errMessage}}</span>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-datepicker ng-model="mission.date_fin" md-placeholder="Date Fin"  name="max" min=" {{ mission.date_debut.min }}"></md-datepicker>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="number" ng-model="mission.tjm" placeholder="TJM">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="number" ng-model="mission.prix_vente" placeholder="Prix Vente">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="number" ng-model="mission.assurance" placeholder="Assurance">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input type="number" ng-model="mission.charges_sociales" placeholder="Charges Sociales">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="mission.ref_contrat" placeholder="Réf.Contrat">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="mission.delai_paiement" name="addx" placeholder="Délai Paiement" ng-pattern="/^[0-9]{1,7}$/">
+                    <div ng-messages="userForm.addx.$error">
+                        <div ng-message="pattern">Délai Paiement est numérique!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select text="dd" ng-model="mission.type_contrat" placeholder="Type Contrat" required>
+                        <md-optgroup>
+                            <md-option ng-value="type" ng-repeat="type in typesContrat">{{type}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                    <div ng-messages="userForm.dd.$error" ng-if="userForm.$submitted || userForm.dd.$touched">
+                        <div ng-message="required">Titre est obligatoire !!!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="mission.salaire" placeholder="Salaire">
+                </md-input-container>
+
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                    <md-button type="submit" ng-click="add(mission)">
+                        Valider
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+
+
+</div>
+

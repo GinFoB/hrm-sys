@@ -1,0 +1,65 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="CaisseCtrl">
+            <form name="userForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Designation</label>
+                        <input ng-value="datas.designat" disabled>
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Date Paiement</label>
+                    <input ng-value="datas.date_paiement" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Mode Paiement</label>
+                    <input ng-value="datas.mode_paiement" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Montant</label>
+                    <input ng-value="datas.montant" disabled>
+                </md-input-container>
+
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Réf Paiement</label>
+                    <input ng-value="datas.ref_paiement" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Type Débit</label>
+                    <input ng-value="datas.type_opr" disabled>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <label>Observations</label>
+                    <input ng-value="datas.observations" disabled>
+                </md-input-container>
+
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                </md-dialog-actions>
+
+            </form>
+        </div>
+    </md-content>
+
+
+</div>
+

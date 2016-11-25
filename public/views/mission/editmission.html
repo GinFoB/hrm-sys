@@ -1,0 +1,105 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="MissionCtrl">
+        <form name="userForm">
+            <md-input-container md-no-float class="md-block">
+                <md-select ng-model="mission.client" placeholder="Client" ng-value="datas.client" required>
+                    <md-optgroup>
+                        <md-option ng-value="client" ng-repeat="client in clients">{{client}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <md-select ng-model="mission.consultant" placeholder="Consultant"  ng-value="datas.consultant" required>
+                    <md-optgroup>
+                        <md-option ng-value="consultant" ng-repeat="consultant in consultants">{{consultant}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Titre</label>
+                <input ng-value="datas.mission.titre" ng-model="mission.titre" required>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Date Début</label>
+                <input ng-value="datas.mission.date_debut" ng-model="mission.date_debut">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Date Fin</label>
+                <input ng-value="datas.mission.date_fin" ng-model="mission.date_fin">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>TJM</label>
+                <input type="number" ng-value="datas.mission.tjm" ng-model="mission.tjm">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Prix Vente</label>
+                <input type="number" ng-value="datas.mission.prix_vente" ng-model="mission.prix_vente">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Assurance</label>
+                <input type="number" ng-value="datas.mission.assurance" ng-model="mission.assurance">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Charges Sociales</label>
+                <input type="number" ng-value="datas.mission.charges_sociales" ng-model="mission.charges_sociales">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Réf.Contrat</label>
+                <input ng-value="datas.mission.ref_contrat" ng-model="mission.ref_contrat">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Délai Paiement</label>
+                <input ng-value="datas.mission.delai_paiement" ng-model="mission.delai_paiement">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+             <!--   <md-select ng-model="mission.type_contrat" placeholder="Type Contrat" ng-value="datas.mission.type">
+                    <md-optgroup>
+                        <md-option ng-value="type" ng-repeat="type in typesContrat">{{type}}</md-option>
+                    </md-optgroup>
+                </md-select>-->
+                <input ng-value="datas.mission.type_contrat" ng-model="mission.type_contrat">
+
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <label>Salaire</label>
+                <input ng-value="datas.mission.salaire" ng-model="mission.salaire" required>
+            </md-input-container>
+
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                    <md-button ng-click="edit(mission)">
+                        Valider
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+
+
+</div>

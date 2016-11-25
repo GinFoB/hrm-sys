@@ -1,0 +1,77 @@
+<div ng-controller="CaisseCtrl">
+    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+        <div style="display: flex;">
+
+            <md-input-container class="md-block">
+                <md-datepicker ng-model="firstDay" md-placeholder="Début" disabled></md-datepicker>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-datepicker ng-model="myDate" md-placeholder="Fin" disabled></md-datepicker>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+                <md-select ng-model="caisse.type_opr" placeholder="Type Débit">
+                    <md-optgroup>
+                        <md-option ng-value="type" ng-repeat="type in types">{{type}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+        </div>
+
+        <div layout="row" layout-align="center center">
+            <md-button ng-click="serachCaisse(caisse)" class="md-fab material-icons" style="background-color: grey">
+                <md-icon>search</md-icon>
+            </md-button>
+
+            <md-button ng-click="addCaisse($event)" class="md-fab material-icons" style="background-color: grey">
+                <md-icon>add</md-icon>
+            </md-button>
+
+        </div>
+    </md-content>
+
+
+    </md-content>
+    <md-content laout="column" flex >
+        <md-card>
+            <md-table-container>
+                <table data-md-table data-md-row-select="options.rowSelection" data-ng-model="selected" md-progress="promise">
+                    <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                    <tr md-row>
+                        <th md-column ><span>Désignation</span></th>
+                        <th md-column><span>Date Paiement</span></th>
+                        <th md-column><span>Montant</span></th>
+                        <th md-column><span>Opération</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row md-select="caisse" md-select-id="id" data-md-on-select="log" md-on-deselect="deselect" md-auto-select="options.autoSelect" ng-repeat="caisse in caisses.data | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                        <td md-cell>{{caisse.designat}}</td>
+                        <td md-cell>{{caisse.date_paiement}}</td>
+                        <td md-cell>{{caisse.montant}}</td>
+                        <td md-cell>{{caisse.type_opr}}</td>
+                        <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
+                            <div class="md-toolbar-tools">
+                                <span></span>
+                                <span flex></span>
+                                <md-button class="md-icon-button" ng-click="showCaisse($event)">
+                                    <md-icon>remove_red_eye</md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" ng-click="editCaisse($event)">
+                                    <md-icon>edit</md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" ng-click="showConfirm($event)">
+                                    <md-icon>delete</md-icon>
+                                </md-button>
+                            </div>
+                        </md-toolbar>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{caisses.count}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+        </md-card>
+</div>

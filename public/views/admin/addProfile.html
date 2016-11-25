@@ -1,0 +1,208 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<form>
+    <md-table-container>
+    <md-input-container md-no-float class="md-block">
+        <input placeholder="Nom" ng-model="role">
+    </md-input-container>
+
+    <md-button ng-disabled="true" class="md-primary">Permissions</md-button>
+
+    <table md-table md-progress="promise">
+                            <thead  md-head>
+                            <tr md-row>
+
+                                <th md-column ><span>Client</span>
+                                    <table>
+                                        <tr>
+                                            <td class="md-icon-button">
+                                                <md-icon>add</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove_red_eye</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>edit</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove</md-icon>
+                                            </td>
+                                        </tr>
+                                        <tbody md-body>
+                                        <tr>
+                                            <td>
+                                                <md-checkbox ng-model="addClient"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="readClient"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="editClient"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="removeClient"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+                                <th md-column><span>Consultants</span>
+                                    <table>
+                                        <tr>
+                                            <td class="md-icon-button">
+                                                <md-icon>add</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove_red_eye</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>edit</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove</md-icon>
+                                            </td>
+                                        </tr>
+                                        <tbody md-body>
+                                        <tr>
+                                            <td>
+                                                <md-checkbox ng-model="addCons"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="readCons"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="editCons"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="removeCons"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+                                <th md-column><span>Missions</span>
+                                    <table>
+                                        <tr>
+                                            <td class="md-icon-button">
+                                                <md-icon>add</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove_red_eye</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>edit</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove</md-icon>
+                                            </td>
+                                        </tr>
+                                        <tbody md-body>
+                                        <tr>
+                                            <td>
+                                                <md-checkbox ng-model="addMission"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="readMission"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="editMission"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="removeMission"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+                                <th md-column><span>Prestations</span>
+                                    <table>
+                                        <tr>
+                                            <td class="md-icon-button">
+                                                <md-icon>add</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove_red_eye</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>edit</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove</md-icon>
+                                            </td>
+                                        </tr>
+                                        <tbody md-body>
+                                        <tr>
+                                            <td>
+                                                <md-checkbox ng-model="addPrest"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="readPrest"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="editPrest"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="removePrest"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+                                <th md-column><span>Charges</span>
+                                    <table>
+                                        <tr>
+                                            <td class="md-icon-button">
+                                                <md-icon>add</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove_red_eye</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>edit</md-icon>
+                                            </td>
+                                            <td class="md-icon-button">
+                                                <md-icon>remove</md-icon>
+                                            </td>
+                                        </tr>
+                                        <tbody md-body>
+                                        <tr>
+                                            <td>
+                                                <md-checkbox  ng-model="addCahrage"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="seeCahrage"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="editCahrage"></md-checkbox>
+                                            </td>
+                                            <td>
+                                                <md-checkbox ng-model="removeCahrage"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+  </md-table-container>
+
+<md-dialog-actions layout="row">
+    <span flex></span>
+    <md-button ng-click="cancel()">
+        Annuler
+    </md-button>
+    <md-button ng-click="add()">
+        Valider
+    </md-button>
+</md-dialog-actions>
+</form>
+

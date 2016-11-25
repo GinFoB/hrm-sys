@@ -1,0 +1,78 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2>
+            <span>***************************************************************************************</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak class="md-inline-form"  >
+    <md-content layout-padding>
+        <div ng-controller="CaisseCtrl">
+            <form name="userForm" novalidate>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Designation</label>
+                        <input ng-model="caisse.designat" required name="des">
+                        <div ng-messages="userForm.des.$error" ng-if="userForm.$submitted || userForm.des.$touched">
+                            <div ng-message="required">Designationest obligatoire !!!</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <md-input-container class="md-block">
+                   <md-datepicker ng-model="caisse.date_paiement" md-placeholder="Date Paiement"></md-datepicker>
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="caisse.mode_paiement" placeholder="Mode Paiement">
+                        <md-optgroup>
+                            <md-option ng-value="mode" ng-repeat="mode in modes">{{mode}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Montant</label>
+                    <input ng-model="caisse.montant" type="number" required name="mon">
+                    <div ng-messages="userForm.mon.$error" ng-if="userForm.$submitted || userForm.mon.$touched">
+                        <div ng-message="required">Montant obligatoire !!!</div>
+                    </div>
+                </md-input-container>
+
+
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="caisse.ref_paiement" placeholder="Réf Paiement">
+                </md-input-container>
+
+                <md-input-container md-no-float class="md-block">
+                    <md-select ng-model="caisse.type_opr" placeholder="Type Débit">
+                        <md-optgroup>
+                            <md-option ng-value="type" name="dds" ng-repeat="type in types" required>{{type}}</md-option>
+                        </md-optgroup>
+                    </md-select>
+                    <div ng-messages="userForm.dds.$error" ng-if="userForm.$submitted || userForm.dds.$touched">
+                        <div ng-message="required">Type Débit obligatoire !!!</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <input ng-model="caisse.observations" placeholder="Observations">
+                </md-input-container>
+                <md-dialog-actions layout="row">
+                    <span flex></span>
+                    <md-button ng-click="cancel()">
+                        Annuler
+                    </md-button>
+                    <md-button type="submit" ng-click="add(caisse)">
+                        Valider
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-content>
+
+
+</div>
+

@@ -1,0 +1,96 @@
+<div ng-controller="PrestationCtrl">
+    <div layout="center center">
+        <md-input-container>
+            <md-select ng-model="prestation.mission" placeholder="Mission">
+                <md-optgroup>
+                    <md-option ng-value="mission" ng-repeat="mission in missions">{{mission}}</md-option>
+                </md-optgroup>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <md-datepicker ng-model="prestation.date_effet" md-placeholder="Date Effet"></md-datepicker>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <md-datepicker ng-model="prestation.date_paiement_consultant" md-placeholder="Date Paiement Consultant"></md-datepicker>
+        </md-input-container>
+
+    </div>
+    <div layout="center center">
+        <md-input-container class="md-block">
+            <md-datepicker ng-model="prestation.date_paiement_client" md-placeholder="Date Paiement Client"></md-datepicker>
+        </md-input-container>
+        <md-input-container >
+            <md-select ng-model="prestation.prestation_payee" placeholder="Prestation Payée">
+                <md-optgroup>
+                    <md-option ng-value="chose" ng-repeat="chose in yesOrNon">{{chose}}</md-option>
+                </md-optgroup>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <md-select ng-model="prestation.facture_reglee" placeholder="Facture Réglée">
+                <md-optgroup>
+                    <md-option ng-value="chose" ng-repeat="chose in yesOrNon">{{chose}}</md-option>
+                </md-optgroup>
+            </md-select>
+        </md-input-container>
+        <div layout="row">
+            <md-button ng-click="serachPrestation(prestation)" class="md-fab material-icons" style="background-color: grey">
+                <md-icon>search</md-icon>
+            </md-button>
+
+            <md-button ng-click="addPrestation($event)" class="md-fab material-icons" style="background-color: grey">
+                <md-icon>add</md-icon>
+            </md-button>
+        </div>
+    </div>
+
+
+<md-content laout="column" flex >
+    <md-card>
+        <md-table-container>
+            <table data-md-table data-md-row-select="options.rowSelection" data-ng-model="selected" md-progress="promise">
+                <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                <tr md-row>
+                    <th md-column ><span>Mission</span></th>
+                    <th md-column><span>Date Effet</span></th>
+                    <th md-column><span>Date Paiement Consultant</span></th>
+                    <th md-column><span>Date Paiement Client</span></th>
+                    <th md-column><span>Mode Paiement Consultant</span></th>
+                    <th md-column><span>Jours Facturés</span></th>
+
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row md-select="prestation" md-select-id="id" data-md-on-select="log" md-on-deselect="deselect" md-auto-select="options.autoSelect" ng-repeat="prestation in prestations.data | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                    <td md-cell ></td>
+                    <td md-cell>{{prestation.date_effet}}</td>
+                    <td md-cell>{{prestation.date_paiement_consultant}}</td>
+                    <td md-cell>{{prestation.date_paiement_client}}</td>
+                    <td md-cell>{{prestation.mode_paiement_consultant}}</td>
+                    <td md-cell>{{prestation.montant_facture}}</td>
+                    <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
+                        <div class="md-toolbar-tools">
+                            <span></span>
+                            <span flex></span>
+                            <md-button class="md-icon-button" ng-click="showPrestation($event)">
+                                <md-icon>remove_red_eye</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" ng-click="editPrestation($event)">
+                                <md-icon>edit</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" ng-click="showConfirm($event)">
+                                <md-icon>delete</md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{prestations.count}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+    </md-card>
+</div>

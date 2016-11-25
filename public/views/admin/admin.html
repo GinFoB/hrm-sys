@@ -1,0 +1,252 @@
+<div ng-cloak ng-controller="AdminCtrl">
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Change Mot de passe">
+                <md-content class="md-padding">
+                    <div>
+                        <form name="userForm">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Ancien mot de passe</label>
+                                <input type="password" ng-model="apassword">
+                            </md-input-container>
+                            <md-input-container md-no-float class="md-block">
+                                <input type="password" ng-model="npassword" placeholder="Nouveau mot de passe">
+                            </md-input-container>
+                            <md-input-container md-no-float class="md-block">
+                                <input type="password" ng-model="gpassword" placeholder="Confirmer mot de passe">
+                            </md-input-container>
+                            <md-dialog-actions layout="row">
+                                <span flex></span>
+                                <md-button ng-click="cancel()">
+                                    Annuler
+                                </md-button>
+                                <md-button ng-click="rest()">
+                                    Valider
+                                </md-button>
+                            </md-dialog-actions>
+                        </form>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Profiles">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Profiles</h1>
+                    <md-button ng-click="addProfile($event)" class="md-fab material-icons" style="background-color: grey">
+                        <md-icon>add</md-icon>
+                    </md-button>
+
+                    <table md-table md-progress="promise" ng-repeat="role in isRole">
+                        <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                        <tr md-row >
+                            <th md-column ><span></span>
+                                <table >
+                                    <tr >
+                                        <td>{{role.role}}</td>
+                                    </tr>
+                                </table>
+                            </th>
+                            <th md-column ><span>Client</span>
+                                <table>
+                                    <tr style="display: inline;">
+                                        <th class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </th>
+                                        <th class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </th>
+                                        <th class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </th>
+                                        <th class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </th>
+                                    </tr>
+                                    <tbody ng-repeat="perm in role.perm" style="display: inline;">
+                                    <tr>
+                                        <td> {{perm === "create-client" ? 'X' : ''}}</td>
+                                        <td> {{perm === "edit-client" ? 'X' : ''}}</td>
+                                        <td> {{perm === "delete-client" ? 'X' : ''}}</td>
+                                        <td> {{perm === "read-client" ? 'X' : ''}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                            <th md-column style="margin-left: -10px;"><span>Consultants</span>
+                                <table>
+                                    <tr style="display: inline; ">
+                                        <td class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tbody>
+                                    <tbody ng-repeat="perm in role.perm" style="display: inline;" >
+                                    <tr>
+                                        <td> {{perm === "add-cons" ? 'X' : ''}}</td>
+                                        <td> {{perm === "edit-cons" ? 'X' : ''}}</td>
+                                        <td> {{perm === "read-cons" ? 'X' : ''}}</td>
+                                        <td> {{perm === "delete-cons" ? 'X' : ''}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+
+                            <th md-column><span>Missions</span>
+                                <table>
+                                    <tr style="display: inline;">
+                                        <td class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tbody ng-repeat="perm in role.perm" style="display: inline;">
+                                    <tr>
+                                        <td> {{perm === "add-mission" ? 'X' : ''}}</td>
+                                        <td> {{perm === "read-mission" ? 'X' : ''}}</td>
+                                        <td> {{perm === "edit-mission" ? 'X' : ''}}</td>
+                                        <td> {{perm === "delete-mission" ? 'X' : ''}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                            <th md-column><span>Prestations</span>
+                                <table>
+                                    <tr style="display: inline;">
+                                        <td class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tbody ng-repeat="perm in role.perm" style="display: inline;">
+                                    <tr>
+                                        <td> {{perm === "add-pert" ? 'X' : ''}}</td>
+                                        <td> {{perm === "edit-pert" ? 'X' : ''}}</td>
+                                        <td> {{perm === "delete-pert" ? 'X' : ''}}</td>
+                                        <td> {{perm === "read-pert" ? 'X' : ''}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                            <th md-column><span>Caisse</span>
+                                <table>
+                                    <tr style="display: inline;">
+                                        <td class="md-icon-button">
+                                            <md-icon>add</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove_red_eye</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>edit</md-icon>
+                                        </td>
+                                        <td class="md-icon-button">
+                                            <md-icon>remove</md-icon>
+                                        </td>
+                                    </tr>
+                                    <tbody ng-repeat="perm in role.perm" style="display: inline;">
+                                    <tr>
+                                        <td> {{perm === "add-caisse" ? 'X' : ''}}</td>
+                                        <td> {{perm === "edit-caisse" ? 'X' : ''}}</td>
+                                        <td> {{perm === "delete-caisse" ? 'X' : ''}}</td>
+                                        <td> {{perm === "read-caise" ? 'X' : ''}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </th>
+                        </tr>
+                        </thead>
+
+                    </table>
+                </md-content>
+            </md-tab>
+            <md-tab label="Utilisateurs">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Utilisateurs</h1>
+
+                    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                        <div style="display: flex;">
+
+                            <md-input-container class="md-block">
+                                <input ng-model="user.email" placeholder="Email" />
+                            </md-input-container>
+
+
+                            <md-input-container md-no-float class="md-block">
+                                <md-select ng-model="user.profile" placeholder="Profile">
+                                    <md-optgroup>
+                                        <md-option ng-value="type" ng-repeat="type in profilesNames">{{type}}</md-option>
+                                    </md-optgroup>
+                                </md-select>
+                            </md-input-container>
+
+                        </div>
+
+                        <div layout="row" layout-align="center center">
+                            <md-button ng-click="serachUser(user)" class="md-fab material-icons" style="background-color: grey">
+                                <md-icon>search</md-icon>
+                            </md-button>
+
+                            <md-button ng-click="addUser($event)" class="md-fab material-icons" style="background-color: grey">
+                                <md-icon>add</md-icon>
+                            </md-button>
+
+                        </div>
+                    </md-content>
+
+                        <div flex-gt-xs>
+                            <md-button ng-click="addUser($event)" class="md-fab material-icons" style="background-color: grey">
+                                <md-icon>add</md-icon>
+                            </md-button>
+                        </div>
+                        <md-card>
+                        <md-table-container>
+                            <table data-md-table data-md-row-select="options.rowSelection" data-ng-model="selected" md-progress="promise">
+                                <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                                <tr md-row>
+                                    <th md-column ><span>Utilisateur</span></th>
+                                    <th md-column><span>Profile</span></th>
+                                </tr>
+                                </thead>
+                                <tbody md-body>
+                                <tr md-row md-select="user" md-select-id="id" data-md-on-select="log" md-on-deselect="deselect" md-auto-select="options.autoSelect" ng-repeat="user in users">
+                                    <td md-cell>{{user.email}}</td>
+                                    <td md-cell ng-repeat="profile in user.profile">{{profile}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        </md-card>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
